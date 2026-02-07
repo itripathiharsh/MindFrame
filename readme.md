@@ -1,16 +1,3 @@
-Perfect. This is the **right moment** to freeze everything into a clean, professional README.
-Below is a **complete, detailed, submission-ready README** that explains:
-
-* What MindFrame is
-* Full workflow
-* Folder & file responsibilities
-* How to run (interactive + CLI)
-* Why design decisions were made
-* Sample output explanation
-
-You can **copy-paste this as `README.md`** at the project root.
-
----
 
 # 🧠 MindFrame
 
