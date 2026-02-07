@@ -163,13 +163,3 @@ output/
 MIT License
 
 ---
-
-If you want next, I can:
-
-* Make it **shorter (1-page README)**
-* Add **diagrams**
-* Split README per module
-* Rewrite this to sound more **research-paper style**
-* Tailor it for **resume / GitHub showcase**
-
-Just say the word 🚀
