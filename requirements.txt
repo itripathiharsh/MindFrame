@@ -1,0 +1,7 @@
+# Video processing
+opencv-python>=4.8.0
+
+# Metadata / utilities
+PyYAML>=6.0
+tqdm>=4.66.1
+numpy>=1.24.0

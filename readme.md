@@ -1,175 +1,292 @@
+Perfect. This is the **right moment** to freeze everything into a clean, professional README.
+Below is a **complete, detailed, submission-ready README** that explains:
 
-# MindFrame
+* What MindFrame is
+* Full workflow
+* Folder & file responsibilities
+* How to run (interactive + CLI)
+* Why design decisions were made
+* Sample output explanation
 
-**AI-Powered Video-Based Human Behavior Analysis System**
-
-InsightLens is a modular computer vision system designed to analyze human behavior from video data. The project processes video streams to extract meaningful frames, detect visual changes, analyze face and pose orientation, and filter frames based on behavioral quality metrics.
-
-The system is built as a **multi-stage pipeline**, where each module is independently configurable and scalable.
-
----
-
-## 🚀 Key Features
-
-* Multi-format video support (MP4, AVI, MOV)
-* Configurable frame extraction with accurate timestamps
-* Pixel-level change detection to reduce redundant frames
-* Face detection and pose estimation for behavior filtering
-* Modular, pipeline-based architecture
-* CLI-driven execution for easy testing and integration
+You can **copy-paste this as `README.md`** at the project root.
 
 ---
 
-## 🧩 System Architecture
+# 🧠 MindFrame
+
+**Video Frame Extraction Module (Ticket-1)**
+
+MindFrame is a modular, production-ready video preprocessing system designed for **behavior analysis pipelines**.
+This module focuses on **robust frame extraction with accurate timestamps**, forming the foundation for downstream tasks such as change detection, face/pose analysis, and behavior scoring.
+
+---
+
+## 📌 What This Module Does
+
+MindFrame takes a video file as input and:
+
+* Extracts frames using **FFmpeg** or **OpenCV**
+* Supports **configurable frame rates** (1 FPS, 10 FPS, etc.)
+* Preserves **timestamp metadata** for each frame
+* Handles common video formats (MP4, AVI, MOV, MKV)
+* Provides **two execution modes**:
+
+  * Interactive (human-friendly)
+  * CLI-based (automation-friendly)
+
+This module is **Stage-1** of the overall behavior analysis pipeline.
+
+---
+
+## 🧩 High-Level Workflow
 
 ```
 Video Input
    ↓
-Frame Extraction Module
+Video Metadata Reader
    ↓
-Pixel Difference Detection
+Frame Extraction Engine (FFmpeg / OpenCV)
    ↓
-Face & Pose Detection Filter
+Timestamp Mapping
    ↓
-Behavior-Ready Frame Dataset
-```
-
-Each stage operates independently and passes structured output to the next module.
-
----
-
-## 📦 Project Modules
-
-### 1️⃣ Frame Extraction Module
-
-**Purpose:**
-Extract frames from video files at a configurable rate while preserving timestamp metadata.
-
-**Key Capabilities:**
-
-* FPS-based or frame-interval-based extraction
-* Timestamp generation for each frame
-* Supports multiple video formats
-* CLI-based execution
-
----
-
-### 2️⃣ Pixel Difference Detection Module
-
-**Purpose:**
-Identify significant visual changes between consecutive frames and drop redundant frames.
-
-**Techniques Used:**
-
-* Mean Squared Error (MSE)
-* Structural Similarity Index (SSIM)
-* Configurable change thresholds (5%, 10%, 15%, 20%)
-
----
-
-### 3️⃣ Face & Pose Detection Filter
-
-**Purpose:**
-Ensure extracted frames contain usable human presence and orientation.
-
-**Capabilities:**
-
-* Face detection using CV/ML models
-* Pose estimation to identify back-facing or profile views
-* Quality scoring for face visibility
-* Multi-participant handling
-
----
-
-## 🛠️ Tech Stack
-
-* **Python 3.9+**
-* **OpenCV**
-* **FFmpeg**
-* **MediaPipe**
-* **NumPy**
-* **scikit-image**
-* **CLI (argparse / typer)**
-
----
-
-## ⚙️ Installation
-
-```bash
-git clone https://github.com/your-username/insightlens.git
-cd insightlens
-pip install -r requirements.txt
+Structured Output (Images + metadata.json)
 ```
 
 ---
 
-## ▶️ Usage (Example)
+## 📁 Project Structure
 
-```bash
-python extract_frames.py \
-  --video sample.mp4 \
-  --fps 1 \
-  --output frames/
 ```
-
-Each module can be run independently or chained together as part of the full pipeline.
+MindFrame/
+│
+├── run.py                      # Interactive entry point (recommended for demos)
+├── README.md
+├── requirements.txt
+│
+├── src/
+│   ├── __init__.py
+│   │
+│   ├── cli.py                  # CLI entry point (scripted / automation)
+│   ├── main.py                 # Core orchestration logic
+│   │
+│   ├── extractors/
+│   │   ├── __init__.py
+│   │   ├── ffmpeg_extractor.py # FFmpeg-based frame extraction
+│   │   └── opencv_extractor.py # OpenCV-based frame extraction
+│   │
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── video_info.py       # Reads FPS, duration, total frames
+│   │   ├── metadata_writer.py  # Writes metadata.json
+│   │   └── validators.py       # Input validation utilities
+│
+├── samples/
+│   └── sample_video.mp4        # Test video
+│
+├── tests/
+│   └── test_extraction.py      # Pytest-based validation
+│
+└── output/                     # Generated outputs (ignored in git)
+```
 
 ---
 
-## 📁 Sample Output Structure
+## 🧠 File Responsibilities (Important)
+
+### `main.py` – **Core Orchestrator**
+
+* Reads video metadata
+* Chooses extraction engine
+* Calls extractor modules
+* Builds standardized metadata
+* Saves outputs
+
+> This file contains **no user interaction logic**.
+
+---
+
+### `ffmpeg_extractor.py`
+
+* Fast, time-based frame extraction
+* Uses FFmpeg’s `fps` filter
+* Best for production and long videos
+
+---
+
+### `opencv_extractor.py`
+
+* Frame-accurate extraction
+* Reads video frame-by-frame
+* Useful for debugging and variable-FPS videos
+
+---
+
+### `cli.py`
+
+* Script-based execution using flags
+* Designed for automation and batch jobs
+
+---
+
+### `run.py`
+
+* Interactive execution mode
+* Asks user for inputs step-by-step
+* Designed for demos, judges, and non-technical users
+
+---
+
+## ▶️ How to Run (Recommended – Interactive Mode)
+
+### Use case
+
+* First-time users
+* Demos
+* Manual testing
+* Judges / evaluators
+
+### Command
+
+```powershell
+python run.py
+```
+
+### Example interaction
 
 ```
-output/
- ├── frames/
+Enter video path:
+> samples/sample_video.mp4
+
+Choose engine (ffmpeg/opencv) [ffmpeg]:
+> opencv
+
+Enter FPS (e.g., 1, 5, 10):
+> 10
+
+Enter output directory [output]:
+> output_demo
+
+Save metadata? (y/n) [y]:
+> y
+```
+
+### Result
+
+```
+output_demo/
+ ├── images/
  │    ├── frame_000001.jpg
  │    ├── frame_000002.jpg
  │    └── ...
- ├── metadata.json
- └── logs/
+ └── metadata.json
 ```
 
 ---
 
-## 🎯 Use Cases
+## ▶️ How to Run (CLI Mode – Automation)
 
-* Interview and assessment analysis
-* Human attention and engagement tracking
-* Behavioral research and studies
-* Video data preprocessing for ML pipelines
-* Remote proctoring and monitoring systems
+### Use case
 
----
+* Scripts
+* CI/CD
+* Batch processing
+* Advanced users
 
-## 🧠 Future Enhancements
+### Command
 
-* Emotion and sentiment detection
-* Gaze tracking
-* Audio-visual behavior fusion
-* Real-time video stream support
-* Dashboard-based analytics
+```powershell
+python -m src.cli --video samples/sample_video.mp4 --fps 1 --engine ffmpeg --output output --save-metadata
+```
 
----
+### Flags
 
-## 👥 Contributors
-
-* **Harsh** – Frame Extraction Module
-* **Nikhil** – Pixel Difference Detection
-* **Jithin** – Face & Pose Detection
-
----
-
-## 📜 License
-
-MIT License
+| Flag              | Description          |
+| ----------------- | -------------------- |
+| `--video`         | Path to input video  |
+| `--fps`           | Frames per second    |
+| `--engine`        | `ffmpeg` or `opencv` |
+| `--output`        | Output directory     |
+| `--save-metadata` | Save metadata.json   |
 
 ---
 
-If you want next, I can:
+## 📄 Output Format
 
-* Make it **shorter (1-page README)**
-* Add **diagrams**
-* Split README per module
-* Rewrite this to sound more **research-paper style**
-* Tailor it for **resume / GitHub showcase**
+### Directory
 
-Just say the word 🚀
+```
+output/
+ ├── images/
+ │    ├── frame_000001.jpg
+ │    ├── frame_000002.jpg
+ │    └── ...
+ └── metadata.json
+```
+
+### Metadata (`metadata.json`)
+
+```json
+{
+  "project": "MindFrame",
+  "source_video": "sample_video.mp4",
+  "engine": "ffmpeg",
+  "requested_fps": 1,
+  "original_video_fps": 25,
+  "total_frames_extracted": 100,
+  "extraction_time": "2026-02-07T07:17:42Z",
+  "frames": [
+    {
+      "frame_id": 1,
+      "filename": "frame_000001.jpg",
+      "timestamp_sec": 0.0
+    }
+  ]
+}
+```
+
+---
+
+## 🧪 Testing & Validation
+
+Automated tests ensure:
+
+* FFmpeg extraction works
+* OpenCV extraction works
+* Metadata integrity is preserved
+
+### Run tests
+
+```powershell
+python -m pytest
+```
+
+---
+
+## 🎯 About “Sample Output with 100 Frames”
+
+The requirement to provide **100 frames** is a **demonstration artifact**, not a hardcoded rule.
+
+Example:
+
+* 100-second video @ 1 FPS → 100 frames
+* 10-second video @ 10 FPS → 100 frames
+
+This proves:
+
+* FPS logic works
+* System scales beyond toy examples
+
+---
+
+## 🏆 Design Decisions Summary
+
+| Decision                     | Reason                   |
+| ---------------------------- | ------------------------ |
+| Dual engine support          | Flexibility & robustness |
+| FFmpeg as default            | Speed & time accuracy    |
+| OpenCV as fallback           | Frame-level precision    |
+| Separate `run.py` & `cli.py` | Usability + automation   |
+| Central `main.py`            | Clean orchestration      |
+| Metadata JSON                | Downstream compatibility |
+
+---

@@ -1,0 +1,66 @@
+# -------------------------
+# Python bytecode
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# -------------------------
+# Virtual environments
+# -------------------------
+venv/
+.env/
+.venv/
+
+# -------------------------
+# IDE / Editor settings
+# -------------------------
+.vscode/
+.idea/
+*.swp
+
+# -------------------------
+# OS-specific files
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------
+# Test & coverage artifacts
+# -------------------------
+.pytest_cache/
+.coverage
+htmlcov/
+
+# -------------------------
+# Output / Generated files
+# -------------------------
+output/
+output_*/
+test_output/
+sample_output_100_frames/
+
+# -------------------------
+# Logs
+# -------------------------
+*.log
+
+# -------------------------
+# Temporary files
+# -------------------------
+*.tmp
+*.bak
+
+# -------------------------
+# Large media files (optional)
+# -------------------------
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# -------------------------
+# FFmpeg temp files
+# -------------------------
+*.ts
+*.part
