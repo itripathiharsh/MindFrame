@@ -1,0 +1,6 @@
+.git
+extracted_frames/
+benchmarks/
+reduced_frames/
+venv
+.gitignore

@@ -5,3 +5,24 @@ opencv-python>=4.8.0
 PyYAML>=6.0
 tqdm>=4.66.1
 numpy>=1.24.0
+
+
+
+# nikhil -----
+# Video processing
+opencv-python>=4.8.0
+
+# Metadata / utilities
+PyYAML>=6.0
+tqdm>=4.66.1
+numpy>=1.24.0
+
+# Ticket-2: Image comparison
+scikit-image>=0.21.0
+
+
+matplotlib
+
+
+pandas 
+tabulate

@@ -1,0 +1,5 @@
+Config Name,MSE Thresh,SSIM Thresh,Total Frames,Kept,Dropped,Reduction %,Time (s)
+Sensitive (Keep Most),0.1,5.0,143,143,0,0.0%,99.05
+Balanced (Recommended),0.5,15.0,143,142,1,0.7%,86.65
+Strict (Drops Minor),0.5,25.0,143,125,18,12.59%,108.06
+Very Strict (Highlights),1.0,35.0,143,74,69,48.25%,94.1
