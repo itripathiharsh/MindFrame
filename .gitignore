@@ -35,6 +35,7 @@ htmlcov/
 # -------------------------
 # Output / Generated files
 # -------------------------
+outputs/
 output/
 output_*/
 test_output/
@@ -52,7 +53,7 @@ sample_output_100_frames/
 *.bak
 
 # -------------------------
-# Large media files (optional)
+# Large media files
 # -------------------------
 *.mp4
 *.avi
