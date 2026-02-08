@@ -1,4 +1,4 @@
-🧠 MindFrame
+# 🧠 MindFrame
 
 Video Preprocessing & Behavior Analysis Pipeline
 
@@ -6,7 +6,7 @@ MindFrame is a modular, production-ready system designed for behavior analysis p
 
 Instead of flooding downstream AI models with thousands of identical frames (e.g., an empty room), MindFrame uses a hybrid dual-pass filter to keep only the moments where meaningful motion or structural changes occur.
 
-🚀 Quick Start (The "I just want to run it" guide)
+## 🚀 Quick Start (The "I just want to run it" guide)
 
 1. Install Dependencies
 
