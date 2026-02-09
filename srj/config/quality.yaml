@@ -1,0 +1,9 @@
+face_present: 40
+face_conf: 0.7
+face_conf_bonus: 10
+nose: 15
+eyes: 20
+shoulders: 15
+
+min_frame_score: 60
+min_ratio: 0.6

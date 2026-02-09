@@ -40,6 +40,9 @@ output/
 output_*/
 test_output/
 sample_output_100_frames/
+filtered_data1/
+output_frames/
+
 
 # -------------------------
 # Logs
@@ -59,9 +62,17 @@ sample_output_100_frames/
 *.avi
 *.mov
 *.mkv
+*.dav
 
 # -------------------------
 # FFmpeg temp files
 # -------------------------
 *.ts
 *.part
+
+
+srj/*.pt
+*.pt
+
+*.tflite
+*.task
