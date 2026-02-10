@@ -35,13 +35,11 @@ htmlcov/
 # -------------------------
 # Output / Generated files
 # -------------------------
-outputs/
-output/
+
 output_*/
 test_output/
 sample_output_100_frames/
-filtered_data1/
-output_frames/
+
 
 
 # -------------------------
@@ -71,8 +69,4 @@ output_frames/
 *.part
 
 
-srj/*.pt
-*.pt
 
-*.tflite
-*.task

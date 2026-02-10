@@ -1,0 +1,31 @@
+Filename,Decision,Person_Count,Orientations,Avg_Score
+frame_000001.jpg,KEPT,4,"['Slight-Right', 'Semi-Left', 'Frontal', 'Indistinct']",71.25
+frame_000002.jpg,DROPPED,4,"['Slight-Right', 'Indistinct', 'Indistinct', 'Indistinct']",53.75
+frame_000003.jpg,KEPT,4,"['Indistinct', 'Frontal', 'Semi-Right', 'Semi-Right']",66.25
+frame_000004.jpg,DROPPED,5,"['Frontal', 'Indistinct', 'Indistinct', 'Indistinct', 'Indistinct']",56.00
+frame_000005.jpg,DROPPED,5,"['Indistinct', 'Frontal', 'Indistinct', 'Indistinct', 'Indistinct']",56.00
+frame_000006.jpg,DROPPED,5,"['Slight-Right', 'Indistinct', 'Indistinct', 'Slight-Left', 'Indistinct']",59.00
+frame_000007.jpg,KEPT,6,"['Semi-Right', 'Semi-Left', 'Indistinct', 'Face-Only', 'Indistinct', 'Indistinct']",50.83
+frame_000008.jpg,KEPT,5,"['Slight-Right', 'Semi-Left', 'Slight-Right', 'Indistinct', 'Slight-Right']",69.00
+frame_000009.jpg,KEPT,4,"['Semi-Right', 'Semi-Left', 'Indistinct', 'Back (No Face)']",41.25
+frame_000010.jpg,KEPT,4,"['Semi-Right', 'Semi-Left', 'Indistinct', 'Indistinct']",52.50
+frame_000011.jpg,KEPT,5,"['Semi-Left', 'Semi-Right', 'Indistinct', 'Slight-Right', 'Slight-Right']",65.00
+frame_000012.jpg,KEPT,4,"['Slight-Right', 'Semi-Left', 'Slight-Right', 'Slight-Right']",75.00
+frame_000013.jpg,KEPT,4,"['Semi-Left', 'Slight-Right', 'Indistinct', 'Indistinct']",57.50
+frame_000014.jpg,DROPPED,3,"['Semi-Right', 'Indistinct', 'Indistinct']",50.00
+frame_000015.jpg,KEPT,4,"['Slight-Right', 'Semi-Left', 'Back (No Face)', 'Indistinct']",46.25
+frame_000016.jpg,KEPT,4,"['Semi-Right', 'Semi-Left', 'Indistinct', 'Indistinct']",52.50
+frame_000017.jpg,KEPT,4,"['Semi-Right', 'Semi-Left', 'Indistinct', 'Frontal']",66.25
+frame_000018.jpg,KEPT,5,"['Slight-Right', 'Semi-Left', 'Indistinct', 'Back (No Face)', 'Slight-Right']",53.00
+frame_000019.jpg,KEPT,3,"['Semi-Right', 'Semi-Left', 'Frontal']",73.33
+frame_000020.jpg,DROPPED,4,"['Semi-Right', 'Indistinct', 'Indistinct', 'Indistinct']",48.75
+frame_000021.jpg,KEPT,4,"['Semi-Right', 'Indistinct', 'Semi-Left', 'Indistinct']",52.50
+frame_000022.jpg,KEPT,4,"['Slight-Right', 'Indistinct', 'Indistinct', 'Face-Only']",55.00
+frame_000023.jpg,KEPT,3,"['Semi-Left', 'Indistinct', 'Semi-Right']",55.00
+frame_000024.jpg,KEPT,3,"['Semi-Left', 'Semi-Left', 'Semi-Right']",60.00
+frame_000025.jpg,KEPT,3,"['Semi-Left', 'Slight-Left', 'Indistinct']",61.67
+frame_000026.jpg,KEPT,3,"['Slight-Right', 'Indistinct', 'Slight-Right']",68.33
+frame_000027.jpg,KEPT,3,"['Semi-Left', 'Slight-Right', 'Indistinct']",61.67
+frame_000028.jpg,DROPPED,3,"['Indistinct', 'Slight-Right', 'Indistinct']",56.67
+frame_000029.jpg,DROPPED,3,"['Back (No Face)', 'Indistinct', 'Slight-Right']",41.67
+frame_000030.jpg,KEPT,2,"['Semi-Right', 'Semi-Right']",60.00

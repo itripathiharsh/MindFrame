@@ -1,0 +1,144 @@
+Filename,Decision,Person_Count,Orientations,Avg_Score
+frame_000001.jpg,KEPT,5,"['Slight-Left', 'Semi-Right', 'Slight-Right', 'Slight-Right', 'Frontal']",80.00
+frame_000002.jpg,KEPT,5,"['Slight-Left', 'Slight-Right', 'Semi-Right', 'Frontal', 'Slight-Right']",80.00
+frame_000003.jpg,KEPT,5,"['Semi-Right', 'Slight-Left', 'Slight-Right', 'Slight-Right', 'Frontal']",80.00
+frame_000004.jpg,KEPT,5,"['Slight-Left', 'Semi-Right', 'Frontal', 'Slight-Right', 'Slight-Right']",80.00
+frame_000005.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Slight-Right', 'Semi-Right', 'Slight-Right']",80.00
+frame_000006.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Slight-Right', 'Slight-Right', 'Slight-Right']",84.00
+frame_000007.jpg,KEPT,5,"['Frontal', 'Slight-Left', 'Slight-Right', 'Semi-Right', 'Slight-Right']",80.00
+frame_000008.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Slight-Right', 'Slight-Right', 'Semi-Right']",80.00
+frame_000009.jpg,KEPT,5,"['Slight-Left', 'Slight-Right', 'Frontal', 'Slight-Right', 'Semi-Right']",80.00
+frame_000010.jpg,KEPT,5,"['Semi-Right', 'Slight-Left', 'Slight-Right', 'Frontal', 'Slight-Right']",80.00
+frame_000011.jpg,KEPT,5,"['Slight-Left', 'Slight-Right', 'Semi-Right', 'Frontal', 'Frontal']",84.00
+frame_000012.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Frontal', 'Semi-Right', 'Semi-Right']",80.00
+frame_000013.jpg,KEPT,5,"['Frontal', 'Slight-Left', 'Frontal', 'Slight-Right', 'Semi-Right']",84.00
+frame_000014.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Frontal', 'Slight-Right', 'Slight-Right']",88.00
+frame_000015.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Frontal', 'Frontal', 'Semi-Right']",88.00
+frame_000016.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Semi-Right', 'Slight-Right', 'Frontal']",84.00
+frame_000017.jpg,KEPT,5,"['Semi-Right', 'Slight-Left', 'Frontal', 'Slight-Right', 'Frontal']",84.00
+frame_000018.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Slight-Right', 'Frontal', 'Frontal']",92.00
+frame_000019.jpg,KEPT,5,"['Semi-Left', 'Slight-Right', 'Frontal', 'Frontal', 'Frontal']",88.00
+frame_000020.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Semi-Right', 'Semi-Right', 'Semi-Right']",72.00
+frame_000021.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Semi-Right', 'Semi-Right', 'Semi-Right']",72.00
+frame_000022.jpg,KEPT,5,"['Slight-Right', 'Slight-Left', 'Frontal', 'Semi-Right', 'Slight-Right']",80.00
+frame_000023.jpg,KEPT,5,"['Frontal', 'Frontal', 'Semi-Left', 'Frontal', 'Slight-Right']",88.00
+frame_000024.jpg,KEPT,5,"['Slight-Right', 'Semi-Left', 'Semi-Right', 'Indistinct', 'Slight-Right']",64.00
+frame_000025.jpg,KEPT,5,"['Frontal', 'Semi-Left', 'Slight-Right', 'Slight-Right', 'Semi-Right']",76.00
+frame_000026.jpg,KEPT,5,"['Frontal', 'Slight-Left', 'Semi-Right', 'Slight-Right', 'Slight-Right']",80.00
+frame_000027.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Frontal', 'Semi-Right', 'Slight-Right']",84.00
+frame_000028.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Slight-Right', 'Frontal', 'Slight-Right']",88.00
+frame_000029.jpg,KEPT,5,"['Semi-Left', 'Frontal', 'Slight-Right', 'Semi-Right', 'Frontal']",80.00
+frame_000030.jpg,KEPT,5,"['Slight-Right', 'Slight-Right', 'Semi-Left', 'Slight-Right', 'Semi-Right']",72.00
+frame_000031.jpg,KEPT,5,"['Slight-Right', 'Slight-Left', 'Slight-Right', 'Semi-Right', 'Slight-Right']",76.00
+frame_000032.jpg,KEPT,5,"['Semi-Right', 'Slight-Right', 'Frontal', 'Slight-Left', 'Frontal']",84.00
+frame_000033.jpg,KEPT,5,"['Semi-Right', 'Indistinct', 'Frontal', 'Frontal', 'Slight-Right']",76.00
+frame_000034.jpg,KEPT,5,"['Slight-Left', 'Semi-Right', 'Frontal', 'Slight-Right', 'Slight-Right']",80.00
+frame_000035.jpg,KEPT,5,"['Slight-Left', 'Semi-Right', 'Frontal', 'Slight-Right', 'Frontal']",84.00
+frame_000036.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Frontal', 'Semi-Right', 'Slight-Right']",84.00
+frame_000037.jpg,KEPT,6,"['Slight-Left', 'Frontal', 'Semi-Right', 'Slight-Right', 'Frontal', 'Back (No Face)']",70.00
+frame_000038.jpg,KEPT,6,"['Slight-Left', 'Semi-Right', 'Slight-Right', 'Semi-Right', 'Frontal', 'Back (No Face)']",63.33
+frame_000039.jpg,KEPT,6,"['Semi-Right', 'Semi-Right', 'Slight-Left', 'Frontal', 'Slight-Right', 'Back (No Face)']",63.33
+frame_000040.jpg,KEPT,6,"['Frontal', 'Semi-Right', 'Slight-Right', 'Slight-Left', 'Slight-Left', 'Frontal']",83.33
+frame_000041.jpg,KEPT,6,"['Frontal', 'Semi-Right', 'Frontal', 'Slight-Left', 'Slight-Right', 'Slight-Left']",83.33
+frame_000042.jpg,KEPT,6,"['Semi-Right', 'Slight-Left', 'Indistinct', 'Frontal', 'Frontal', 'Back (No Face)']",63.33
+frame_000043.jpg,KEPT,6,"['Semi-Right', 'Slight-Left', 'Frontal', 'Slight-Right', 'Back (No Face)', 'Semi-Right']",63.33
+frame_000044.jpg,KEPT,6,"['Slight-Left', 'Semi-Right', 'Frontal', 'Slight-Right', 'Slight-Right', 'Back (No Face)']",66.67
+frame_000045.jpg,KEPT,6,"['Frontal', 'Semi-Right', 'Frontal', 'Slight-Right', 'Slight-Left', 'Back (No Face)']",70.00
+frame_000046.jpg,KEPT,6,"['Semi-Right', 'Semi-Left', 'Slight-Right', 'Slight-Right', 'Frontal', 'Back (No Face)']",63.33
+frame_000047.jpg,KEPT,6,"['Slight-Right', 'Slight-Right', 'Semi-Right', 'Frontal', 'Slight-Right', 'Back (No Face)']",66.67
+frame_000048.jpg,KEPT,6,"['Indistinct', 'Slight-Right', 'Frontal', 'Semi-Right', 'Semi-Right', 'Slight-Right']",70.00
+frame_000049.jpg,KEPT,6,"['Frontal', 'Frontal', 'Slight-Left', 'Frontal', 'Semi-Right', 'Back (No Face)']",73.33
+frame_000050.jpg,KEPT,6,"['Slight-Right', 'Semi-Left', 'Slight-Right', 'Slight-Left', 'Frontal', 'Back (No Face)']",66.67
+frame_000051.jpg,KEPT,6,"['Frontal', 'Frontal', 'Slight-Right', 'Semi-Left', 'Back (No Face)', 'Slight-Right']",70.00
+frame_000052.jpg,KEPT,6,"['Semi-Left', 'Frontal', 'Frontal', 'Slight-Right', 'Frontal', 'Slight-Right']",86.67
+frame_000053.jpg,KEPT,6,"['Frontal', 'Semi-Left', 'Frontal', 'Frontal', 'Semi-Right', 'Slight-Right']",83.33
+frame_000054.jpg,KEPT,6,"['Semi-Right', 'Frontal', 'Semi-Left', 'Semi-Left', 'Frontal', 'Indistinct']",70.00
+frame_000055.jpg,KEPT,7,"['Semi-Right', 'Slight-Left', 'Slight-Left', 'Indistinct', 'Semi-Right', 'Slight-Left', 'Slight-Left']",68.57
+frame_000056.jpg,KEPT,6,"['Frontal', 'Semi-Right', 'Slight-Left', 'Slight-Left', 'Frontal', 'Frontal']",86.67
+frame_000057.jpg,KEPT,7,"['Frontal', 'Semi-Left', 'Slight-Right', 'Frontal', 'Semi-Right', 'Back (No Face)', 'Back (No Face)']",57.14
+frame_000058.jpg,KEPT,6,"['Frontal', 'Frontal', 'Semi-Left', 'Indistinct', 'Semi-Right', 'Back (No Face)']",60.00
+frame_000059.jpg,KEPT,6,"['Frontal', 'Frontal', 'Semi-Left', 'Frontal', 'Slight-Left', 'Frontal']",90.00
+frame_000060.jpg,KEPT,6,"['Frontal', 'Slight-Left', 'Indistinct', 'Indistinct', 'Frontal', 'Semi-Left']",70.00
+frame_000061.jpg,KEPT,6,"['Semi-Left', 'Slight-Left', 'Slight-Left', 'Frontal', 'Semi-Right', 'Frontal']",80.00
+frame_000062.jpg,DROPPED,7,"['Indistinct', 'Frontal', 'Slight-Right', 'Slight-Left', 'Semi-Left', 'Indistinct', 'Back (No Face)']",57.14
+frame_000063.jpg,KEPT,7,"['Frontal', 'Semi-Left', 'Frontal', 'Indistinct', 'Slight-Right', 'Frontal', 'Back (No Face)']",68.57
+frame_000064.jpg,KEPT,7,"['Frontal', 'Slight-Right', 'Semi-Left', 'Frontal', 'Semi-Left', 'Slight-Left', 'Back (No Face)']",68.57
+frame_000065.jpg,KEPT,7,"['Slight-Right', 'Slight-Left', 'Slight-Left', 'Semi-Left', 'Slight-Left', 'Frontal', 'Back (No Face)']",68.57
+frame_000066.jpg,KEPT,7,"['Frontal', 'Slight-Left', 'Frontal', 'Indistinct', 'Semi-Left', 'Semi-Left', 'Back (No Face)']",62.86
+frame_000067.jpg,KEPT,6,"['Frontal', 'Slight-Left', 'Slight-Left', 'Frontal', 'Frontal', 'Back (No Face)']",76.67
+frame_000068.jpg,KEPT,6,"['Frontal', 'Slight-Left', 'Semi-Left', 'Indistinct', 'Semi-Left', 'Back (No Face)']",56.67
+frame_000069.jpg,KEPT,6,"['Frontal', 'Frontal', 'Semi-Left', 'Frontal', 'Back (No Face)', 'Slight-Left']",73.33
+frame_000070.jpg,KEPT,6,"['Frontal', 'Frontal', 'Frontal', 'Semi-Left', 'Slight-Left', 'Indistinct']",80.00
+frame_000071.jpg,KEPT,6,"['Frontal', 'Semi-Left', 'Semi-Left', 'Frontal', 'Semi-Left', 'Indistinct']",70.00
+frame_000072.jpg,KEPT,6,"['Frontal', 'Semi-Left', 'Frontal', 'Indistinct', 'Frontal', 'Semi-Left']",76.67
+frame_000073.jpg,KEPT,6,"['Slight-Left', 'Slight-Left', 'Indistinct', 'Semi-Left', 'Frontal', 'Semi-Left']",70.00
+frame_000074.jpg,KEPT,6,"['Slight-Left', 'Semi-Left', 'Back (No Face)', 'Semi-Left', 'Indistinct', 'Frontal']",56.67
+frame_000075.jpg,KEPT,6,"['Slight-Right', 'Frontal', 'Frontal', 'Semi-Left', 'Frontal', 'Indistinct']",80.00
+frame_000076.jpg,KEPT,7,"['Semi-Left', 'Frontal', 'Semi-Left', 'Indistinct', 'Frontal', 'Frontal', 'Back (No Face)']",65.71
+frame_000077.jpg,KEPT,6,"['Semi-Left', 'Slight-Left', 'Frontal', 'Slight-Right', 'Frontal', 'Semi-Left']",80.00
+frame_000078.jpg,KEPT,6,"['Back (No Face)', 'Slight-Left', 'Indistinct', 'Slight-Right', 'Slight-Right', 'Frontal']",63.33
+frame_000079.jpg,KEPT,6,"['Semi-Left', 'Frontal', 'Slight-Right', 'Semi-Left', 'Slight-Right', 'Frontal']",80.00
+frame_000080.jpg,KEPT,6,"['Frontal', 'Slight-Right', 'Slight-Right', 'Semi-Left', 'Indistinct', 'Frontal']",76.67
+frame_000081.jpg,KEPT,6,"['Frontal', 'Indistinct', 'Frontal', 'Frontal', 'Slight-Right', 'Semi-Left']",80.00
+frame_000082.jpg,KEPT,6,"['Slight-Right', 'Semi-Right', 'Semi-Left', 'Slight-Left', 'Frontal', 'Slight-Left']",76.67
+frame_000083.jpg,KEPT,6,"['Semi-Left', 'Semi-Left', 'Semi-Left', 'Frontal', 'Frontal', 'Back (No Face)']",63.33
+frame_000084.jpg,DROPPED,7,"['Frontal', 'Semi-Left', 'Indistinct', 'Slight-Right', 'Semi-Right', 'Indistinct', 'Indistinct']",60.00
+frame_000085.jpg,KEPT,6,"['Semi-Left', 'Slight-Left', 'Frontal', 'Semi-Right', 'Frontal', 'Slight-Left']",80.00
+frame_000086.jpg,KEPT,7,"['Frontal', 'Slight-Left', 'Slight-Right', 'Frontal', 'Semi-Left', 'Semi-Left', 'Back (No Face)']",68.57
+frame_000087.jpg,DROPPED,7,"['Indistinct', 'Frontal', 'Semi-Left', 'Slight-Left', 'Indistinct', 'Frontal', 'Back (No Face)']",60.00
+frame_000088.jpg,KEPT,6,"['Frontal', 'Indistinct', 'Slight-Right', 'Semi-Left', 'Frontal', 'Slight-Left']",76.67
+frame_000089.jpg,KEPT,6,"['Frontal', 'Slight-Right', 'Semi-Left', 'Frontal', 'Frontal', 'Semi-Left']",83.33
+frame_000090.jpg,KEPT,6,"['Frontal', 'Frontal', 'Semi-Left', 'Indistinct', 'Slight-Left', 'Semi-Left']",73.33
+frame_000091.jpg,DROPPED,7,"['Slight-Left', 'Slight-Left', 'Semi-Left', 'Indistinct', 'Back (No Face)', 'Semi-Left', 'Back (No Face)']",45.71
+frame_000092.jpg,KEPT,7,"['Semi-Left', 'Frontal', 'Semi-Left', 'Slight-Left', 'Back (No Face)', 'Slight-Left', 'Back (No Face)']",54.29
+frame_000093.jpg,KEPT,6,"['Frontal', 'Frontal', 'Indistinct', 'Slight-Right', 'Semi-Left', 'Indistinct']",70.00
+frame_000094.jpg,KEPT,6,"['Slight-Right', 'Frontal', 'Slight-Left', 'Semi-Left', 'Indistinct', 'Back (No Face)']",60.00
+frame_000095.jpg,KEPT,6,"['Semi-Left', 'Frontal', 'Frontal', 'Indistinct', 'Back (No Face)', 'Semi-Left']",60.00
+frame_000096.jpg,KEPT,6,"['Semi-Left', 'Back (No Face)', 'Semi-Left', 'Frontal', 'Frontal', 'Slight-Left']",66.67
+frame_000097.jpg,KEPT,6,"['Frontal', 'Back (No Face)', 'Frontal', 'Slight-Left', 'Frontal', 'Semi-Left']",73.33
+frame_000098.jpg,KEPT,6,"['Frontal', 'Indistinct', 'Semi-Left', 'Frontal', 'Semi-Left', 'Indistinct']",66.67
+frame_000099.jpg,KEPT,6,"['Indistinct', 'Frontal', 'Indistinct', 'Semi-Left', 'Frontal', 'Semi-Left']",66.67
+frame_000100.jpg,KEPT,7,"['Slight-Right', 'Slight-Left', 'Slight-Left', 'Semi-Left', 'Semi-Left', 'Frontal', 'Slight-Left']",77.14
+frame_000101.jpg,KEPT,6,"['Indistinct', 'Semi-Left', 'Semi-Left', 'Slight-Left', 'Slight-Left', 'Slight-Left']",66.67
+frame_000102.jpg,KEPT,6,"['Frontal', 'Semi-Left', 'Back (No Face)', 'Frontal', 'Slight-Right', 'Indistinct']",63.33
+frame_000103.jpg,KEPT,5,"['Slight-Left', 'Slight-Left', 'Frontal', 'Frontal', 'Indistinct']",80.00
+frame_000104.jpg,KEPT,5,"['Slight-Left', 'Semi-Left', 'Indistinct', 'Frontal', 'Slight-Left']",72.00
+frame_000105.jpg,KEPT,5,"['Slight-Left', 'Frontal', 'Slight-Left', 'Semi-Left', 'Semi-Left']",76.00
+frame_000106.jpg,KEPT,5,"['Frontal', 'Semi-Left', 'Frontal', 'Slight-Left', 'Indistinct']",76.00
+frame_000107.jpg,KEPT,5,"['Semi-Left', 'Indistinct', 'Frontal', 'Slight-Left', 'Back (No Face)']",56.00
+frame_000108.jpg,DROPPED,5,"['Back (No Face)', 'Indistinct', 'Semi-Left', 'Semi-Left', 'Indistinct']",40.00
+frame_000109.jpg,KEPT,5,"['Frontal', 'Semi-Left', 'Semi-Left', 'Indistinct', 'Semi-Left']",64.00
+frame_000110.jpg,DROPPED,5,"['Semi-Left', 'Back (No Face)', 'Indistinct', 'Slight-Left', 'Indistinct']",44.00
+frame_000111.jpg,KEPT,5,"['Semi-Left', 'Back (No Face)', 'Slight-Left', 'Semi-Left', 'Frontal']",60.00
+frame_000112.jpg,KEPT,5,"['Semi-Left', 'Slight-Left', 'Semi-Left', 'Indistinct', 'Back (No Face)']",48.00
+frame_000113.jpg,KEPT,5,"['Slight-Left', 'Back (No Face)', 'Semi-Left', 'Semi-Left', 'Indistinct']",48.00
+frame_000114.jpg,KEPT,5,"['Semi-Left', 'Semi-Left', 'Indistinct', 'Slight-Left', 'Back (No Face)']",48.00
+frame_000115.jpg,KEPT,5,"['Semi-Left', 'Semi-Left', 'Indistinct', 'Semi-Left', 'Back (No Face)']",44.00
+frame_000116.jpg,DROPPED,5,"['Semi-Left', 'Semi-Left', 'Indistinct', 'Indistinct', 'Back (No Face)']",40.00
+frame_000117.jpg,KEPT,5,"['Semi-Left', 'Slight-Left', 'Semi-Left', 'Semi-Left', 'Back (No Face)']",52.00
+frame_000118.jpg,DROPPED,5,"['Semi-Left', 'Semi-Left', 'Back/Obscured', 'Indistinct', 'Back (No Face)']",36.00
+frame_000119.jpg,KEPT,4,"['Semi-Left', 'Semi-Left', 'Semi-Left', 'Indistinct']",55.00
+frame_000120.jpg,KEPT,4,"['Semi-Left', 'Indistinct', 'Semi-Left', 'Slight-Left']",60.00
+frame_000121.jpg,KEPT,4,"['Semi-Left', 'Semi-Left', 'Semi-Left', 'Indistinct']",55.00
+frame_000122.jpg,DROPPED,4,"['Semi-Left', 'Back (No Face)', 'Semi-Left', 'Indistinct']",40.00
+frame_000123.jpg,KEPT,4,"['Semi-Left', 'Back (No Face)', 'Slight-Left', 'Semi-Left']",50.00
+frame_000124.jpg,DROPPED,4,"['Semi-Left', 'Semi-Left', 'Indistinct', 'Back (No Face)']",40.00
+frame_000125.jpg,KEPT,3,"['Semi-Left', 'Semi-Left', 'Semi-Left']",60.00
+frame_000126.jpg,KEPT,3,"['Slight-Left', 'Semi-Left', 'Slight-Right']",73.33
+frame_000127.jpg,KEPT,3,"['Semi-Left', 'Semi-Left', 'Semi-Left']",60.00
+frame_000128.jpg,KEPT,3,"['Slight-Left', 'Semi-Left', 'Semi-Left']",66.67
+frame_000129.jpg,KEPT,3,"['Semi-Left', 'Semi-Left', 'Semi-Left']",60.00
+frame_000130.jpg,KEPT,3,"['Semi-Left', 'Semi-Left', 'Semi-Left']",60.00
+frame_000131.jpg,KEPT,3,"['Semi-Left', 'Semi-Left', 'Semi-Left']",60.00
+frame_000132.jpg,KEPT,3,"['Semi-Left', 'Slight-Left', 'Semi-Left']",66.67
+frame_000133.jpg,KEPT,3,"['Semi-Left', 'Slight-Left', 'Semi-Left']",66.67
+frame_000134.jpg,KEPT,3,"['Semi-Left', 'Slight-Left', 'Semi-Left']",66.67
+frame_000135.jpg,KEPT,3,"['Slight-Left', 'Slight-Left', 'Semi-Left']",73.33
+frame_000136.jpg,KEPT,3,"['Slight-Left', 'Semi-Left', 'Slight-Left']",73.33
+frame_000137.jpg,KEPT,3,"['Slight-Left', 'Slight-Left', 'Semi-Left']",73.33
+frame_000138.jpg,KEPT,3,"['Slight-Left', 'Semi-Left', 'Semi-Left']",66.67
+frame_000139.jpg,KEPT,4,"['Slight-Left', 'Back (No Face)', 'Semi-Left', 'Semi-Left']",50.00
+frame_000140.jpg,KEPT,5,"['Slight-Left', 'Semi-Left', 'Slight-Right', 'Semi-Left', 'Back (No Face)']",56.00
+frame_000141.jpg,KEPT,5,"['Semi-Left', 'Slight-Right', 'Frontal', 'Semi-Left', 'Slight-Right']",76.00
+frame_000142.jpg,KEPT,5,"['Frontal', 'Frontal', 'Slight-Right', 'Back (No Face)', 'Frontal']",76.00
+frame_000143.jpg,KEPT,5,"['Frontal', 'Slight-Right', 'Frontal', 'Frontal', 'Indistinct']",84.00

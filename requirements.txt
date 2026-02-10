@@ -1,20 +1,24 @@
-# Image & video processing
+# --- Core Image & Video Processing ---
 opencv-python>=4.8.0
 numpy>=1.24.0
 Pillow>=10.0.0
 
-# Image similarity metrics
+# --- Face & Object Detection Models (CRITICAL) ---
+ultralytics>=8.0.0      # For YOLO (Person Detection)
+mtcnn>=0.1.0            # For MTCNN Face Detector
+mediapipe>=0.10.9       # For Pose & Face Landmarks
+tensorflow>=2.15.0      # Required backend for MTCNN
+
+# --- Image Similarity & Metrics ---
 scikit-image>=0.22.0
 
-# Visualization
+# --- Visualization & Graphs ---
 matplotlib>=3.8.0
 
-# Utilities
+# --- Utilities ---
 tqdm>=4.66.0
 PyYAML>=6.0.1
+requests>=2.31.0
 
-# Optional (logging & debugging)
+# --- Optional (Debugging) ---
 rich>=13.7.0
-
-mediapipe>=0.10.9
-requests

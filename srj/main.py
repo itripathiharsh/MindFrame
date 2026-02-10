@@ -5,6 +5,7 @@ import sys
 import shutil
 import csv
 import urllib.request
+import argparse  # CLI ke liye zaroori library
 from ultralytics import YOLO
 
 # --- IMPORTS ---
@@ -28,16 +29,10 @@ POSE_MODEL_PATH = os.path.join(BASE_DIR, POSE_MODEL_FILENAME)
 POSE_URL = "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_heavy/float16/1/pose_landmarker_heavy.task"
 
 # 2. Face Model Paths (MediaPipe BlazeFace)
+# Note: MTCNN use karte waqt iski zaroorat nahi padti, par MediaPipe mode ke liye ye chahiye.
 FACE_MODEL_FILENAME = "blaze_face_short_range.tflite"
 FACE_MODEL_PATH = os.path.join(BASE_DIR, FACE_MODEL_FILENAME)
-# Official Google URL for the Face model
 FACE_URL = "https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite"
-
-# Folders Configuration
-# Note: Checks 'output' folder parallel to 'srj'
-INPUT_FOLDER = os.path.join(BASE_DIR, "..", "output_frames/images")
-OUTPUT_FOLDER = os.path.join(BASE_DIR, "..", "filtered_data")
-CSV_FILE_PATH = os.path.join(OUTPUT_FOLDER, "annotations.csv")
 
 # --- UTILITY: AUTO-DOWNLOAD MODELS ---
 def check_and_download(url, path, name):
@@ -65,13 +60,84 @@ def check_and_download(url, path, name):
         print("Please check internet connection or download manually.")
         sys.exit(1)
 
+# --- CLI ARGUMENT PARSER ---
+def parse_arguments():
+    """
+    Defines command-line arguments for flexible usage.
+    """
+    parser = argparse.ArgumentParser(description="MindFrame Quality Filter & Analytics")
+    
+    # Detector Selection
+    parser.add_argument("-d", "--detector", type=str, default=None, choices=["mtcnn", "mediapipe"],
+                        help="Choose Face Detector: 'mtcnn' (Accurate) or 'mediapipe' (Fast)")
+
+    # Input/Output Paths
+    parser.add_argument("-i", "--input", type=str, default=None, 
+                        help="Path to input folder containing frames (Default: ../output)")
+    parser.add_argument("-o", "--output", type=str, default=None, 
+                        help="Path to save filtered frames (Default: ../filtered_data)")
+
+    # Threshold Overrides
+    parser.add_argument("-s", "--score", type=int, default=None, 
+                        help="Minimum Score per Person (0-100). Overrides config.")
+    parser.add_argument("-r", "--ratio", type=float, default=None, 
+                        help="Minimum Ratio of Good People (0.0-1.0). Overrides config.")
+
+    return parser.parse_args()
+
 # --- MAIN EXECUTION ---
 def main():
-    # 1. Ensure Models Exist (Auto-Download Step)
-    check_and_download(POSE_URL, POSE_MODEL_PATH, "Pose Model")
-    check_and_download(FACE_URL, FACE_MODEL_PATH, "Face Model")
+    # 1. Parse CLI Arguments
+    args = parse_arguments()
 
-    # 2. Load Configuration File
+    # --- INTERACTIVE INPUT LOGIC ---
+    # Agar argument CLI mein nahi diya, toh user se input maango
+    
+    # Input Path Logic
+    if args.input:
+        INPUT_FOLDER = args.input
+    else:
+        user_input = input("Enter Input Images Folder Path (Press Enter for default '../output/images'): ").strip()
+        if user_input:
+            INPUT_FOLDER = user_input
+        else:
+            INPUT_FOLDER = os.path.join(BASE_DIR, "..", "output/images")
+
+    # Model Selection Logic
+    if args.detector:
+        detector_choice = args.detector
+    else:
+        print("\nChoose Face Detector Model:")
+        print("1. MTCNN (More Accurate, Slower)")
+        print("2. MediaPipe (Faster, Less Accurate)")
+        choice = input("Enter choice (1 or 2) [Default: 1]: ").strip()
+        
+        if choice == "2":
+            detector_choice = "mediapipe"
+        else:
+            detector_choice = "mtcnn"
+
+    # Output Path Logic (Optional, keep default or arg)
+    if args.output:
+        OUTPUT_FOLDER = args.output
+    else:
+        OUTPUT_FOLDER = os.path.join(BASE_DIR, "..", "filtered_data")
+        
+    CSV_FILE_PATH = os.path.join(OUTPUT_FOLDER, "annotations.csv")
+
+    print(f"\n[CONFIG] Input: {INPUT_FOLDER}")
+    print(f"[CONFIG] Output: {OUTPUT_FOLDER}")
+    print(f"[CONFIG] Model: {detector_choice.upper()}\n")
+
+    # 3. Ensure Models Exist
+    # Always download Pose Model
+    check_and_download(POSE_URL, POSE_MODEL_PATH, "Pose Model")
+    
+    # Download Face Model only if MediaPipe detector is chosen
+    if detector_choice == "mediapipe":
+        check_and_download(FACE_URL, FACE_MODEL_PATH, "Face Model")
+
+    # 4. Load Configuration File
     if not os.path.exists(CONFIG_PATH):
         print(f"[ERROR] Config not found at: {CONFIG_PATH}")
         sys.exit(1)
@@ -79,14 +145,27 @@ def main():
     with open(CONFIG_PATH, 'r') as f:
         cfg = yaml.safe_load(f)
 
-    # 3. Initialize All Analytics Modules
+    # ** Override Config with CLI Args if provided **
+    if args.score is not None:
+        print(f"[CLI] Overriding Min Score: {args.score}")
+        cfg["min_frame_score"] = args.score
+        
+    if args.ratio is not None:
+        print(f"[CLI] Overriding Min Ratio: {args.ratio}")
+        cfg["min_ratio"] = args.ratio
+
+    # 5. Initialize All Analytics Modules
+    print(f"[INFO] Initializing Pipeline using Detector: {detector_choice.upper()}")
     print("[INFO] Loading YOLO (Person Detector)...")
     yolo = YOLO("yolov8n.pt")
     
-    print("[INFO] Initializing Analytics Modules...")
-    # Initialize detectors with their respective models
+    # Initialize Detectors
     person_detector = PersonDetector(yolo)
-    face_detector = FaceDetector(model_path=FACE_MODEL_PATH)
+    
+    # Hybrid Face Detector Initialization
+    # We pass both method and model_path so it can handle either choice
+    face_detector = FaceDetector(method=detector_choice, model_path=FACE_MODEL_PATH)
+    
     pose_estimator = PoseEstimator(model_path=POSE_MODEL_PATH)
     
     # Initialize Logic Modules
@@ -96,27 +175,23 @@ def main():
     # Build the Analysis Pipeline
     analyzer = FrameAnalyzer(person_detector, face_detector, pose_estimator, scorer)
 
-    # 4. Prepare Output Directories
+    # 6. Prepare Output Directories
     if not os.path.exists(INPUT_FOLDER):
         print(f"[ERROR] Input folder '{INPUT_FOLDER}' does not exist.")
-        print("Make sure you have run Ticket 1 code and have frames in 'output' folder.")
         return
 
     if os.path.exists(OUTPUT_FOLDER):
         print(f"[INFO] Cleaning old output folder: {OUTPUT_FOLDER}")
-        shutil.rmtree(OUTPUT_FOLDER) # Clear old results to avoid mix-up
+        shutil.rmtree(OUTPUT_FOLDER) # Clear old results
     os.makedirs(OUTPUT_FOLDER)
 
-    # 5. Prepare CSV Writer (For Client Deliverables)
+    # 7. Prepare CSV Writer
     print(f"[INFO] Creating Annotation CSV at: {CSV_FILE_PATH}")
     csv_file = open(CSV_FILE_PATH, mode='w', newline='')
     writer = csv.writer(csv_file)
-    
-    # Write the Header row for the CSV
     writer.writerow(["Filename", "Decision", "Person_Count", "Orientations", "Avg_Score"])
 
-    # 6. Process Images Loop
-    # Get all images from input folder
+    # 8. Process Images Loop
     images = [f for f in os.listdir(INPUT_FOLDER) if f.lower().endswith(('.jpg', '.jpeg', '.png'))]
     images.sort()
 
@@ -136,14 +211,11 @@ def main():
         persons = analyzer.analyze(frame)
         
         # --- DECISION STEP ---
-        # Decide based on Policy (e.g., "Are 60% of people facing front?")
         keep, ratio = policy.decide(persons)
 
         # --- DATA LOGGING STEP ---
-        # Extract orientations for CSV (e.g., ['Frontal', 'Back-Facing'])
         orientations_list = [p.get("orientation", "Unknown") for p in persons]
         
-        # Calculate Average Score of the frame
         if persons:
             avg_score = sum(p["score"] for p in persons) / len(persons)
         else:
@@ -155,50 +227,44 @@ def main():
         writer.writerow([img_name, status_str, len(persons), str(orientations_list), f"{avg_score:.2f}"])
 
         # --- VISUALIZATION & SAVING STEP ---
-        # Only save the frame if it passes the policy (keep=True)
         if keep:
             display_frame = frame.copy()
             
-            # Loop through each person to draw details
             for p in persons:
                 bx, by, bw, bh = map(int, p["bbox"])
-                ori_text = p.get("orientation", "N/A")
                 score_val = int(p["score"])
+                ori_text = p.get("orientation", "N/A")
 
                 # --- COLOR CODING LOGIC ---
                 # Green: High Score (Frontal)
                 # Yellow: Medium Score (Semi-Profile)
                 # Red: Low Score (Back/Profile)
-                
                 if score_val >= 90:
-                    color = (0, 255, 0) # Green (Frontal)
+                    color = (0, 255, 0) # Green
                 elif score_val >= 50:
-                    color = (0, 255, 255) # Yellow (Semi/Profile)
+                    color = (0, 255, 255) # Yellow
                 else:
-                    color = (0, 0, 255) # Red (Back)
+                    color = (0, 0, 255) # Red
 
-                # 1. Draw Green Box on Face (if a face was detected)
+                # 1. Draw Face Box (Matches Detector Output)
                 if p["faces"]:
                     for fbox in p["faces"]:
                         fx, fy, fw, fh = map(int, fbox)
-                        # Box color matches the quality score
                         cv2.rectangle(display_frame, (fx, fy), (fx+fw, fy+fh), color, 2)
                 
-                # 2. Draw Orientation Text (e.g., "Frontal (100)")
-                # Place text slightly above the Person's Bounding Box
+                # 2. Draw Orientation Text
                 label = f"{ori_text} ({score_val})"
                 cv2.putText(display_frame, label, (bx, by - 10), 
                             cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
-            # Save the annotated image to the filtered folder
+            # Save the annotated image
             save_path = os.path.join(OUTPUT_FOLDER, img_name)
             cv2.imwrite(save_path, display_frame)
             print(f"[✓] {img_name} : KEPT (Ratio: {ratio:.2f}) -> {orientations_list}")
         else:
-            # If dropped, just print to console
             print(f"[X] {img_name} : DROPPED (Ratio: {ratio:.2f}) -> {orientations_list}")
 
-    # 7. Cleanup & Finish
+    # 9. Cleanup & Finish
     csv_file.close()
     print("------------------------------------------------")
     print(f"[DONE] Analysis Complete.")

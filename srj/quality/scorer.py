@@ -9,25 +9,31 @@ class QualityScorer:
         Calculates a Quality Score (0-100) and determines Orientation.
         Returns: (score, orientation_string)
         """
-        # --- 1. STRICT BACK CHECK (Face Detection based) ---
-        # Agar Face Detector (BlazeFace) ko chehra nahi mila, 
-        # toh ye confirm BACK view hai. Pose model par bharosa mat karo yahan.
+        
+        # --- 1. FACE DETECTION CHECK (With Fallback) ---
         has_face_box = len(faces) > 0
         
         if not has_face_box:
-            # Score 0, kyunki face hi nahi hai
-            return 0, "Back (No Face)"
+            # [FIX]: Agar Face Detector fail ho jaye (jaise banda neeche dekh raha hai),
+            # toh hum Pose Landmarks check karenge.
+            if pose and pose["nose"]["vis"] > 0.6:
+                # Naak visible hai, matlab banda present hai
+                return 45, "Indistinct"
+            else:
+                # Na Face mila, na Pose -> Ye confirm BACK view hai
+                return 0, "Back (No Face)"
 
-        # Agar Face Box hai, toh base score 30
-        score = 30
+        # --- 2. BASE SCORING ---
+        # Agar Face Box hai, toh base score start karo
+        score = 40
         confidence = faces[0]["confidence"]
         if confidence > 0.8:
             score += 10
 
-        # --- 2. POSE GEOMETRY CHECK ---
+        # --- 3. POSE GEOMETRY CHECK ---
         if not pose:
             # Face hai par body landmarks clear nahi hain
-            return 40, "Indistinct"
+            return 50, "Face-Only"
 
         # Landmarks extract karo
         nose = pose["nose"]

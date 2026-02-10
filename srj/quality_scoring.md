@@ -1,1 +1,131 @@
-MindFrame Quality Scoring & Logic Documentation1. OverviewThe Quality Scoring Module evaluates each person in a video frame to determine their engagement level and facing direction. It uses a hybrid approach combining Face Detection (via MediaPipe BlazeFace) and Pose Estimation (via MediaPipe Pose Landmarks) to assign a numerical score (0-100) and a categorical label (Frontal, Profile, Back).2. Logic BreakdownA. Orientation Detection (Geometric Analysis)The system calculates the orientation of a person by analyzing the geometric relationship between the Nose and Ears landmarks.OrientationLogic / ConditionQuality ScoreStatusFrontalBoth ears are visible. Nose is centrally located between ears (Ratio 0.4 - 0.6).100✅ ExcellentSlight-Left/RightBoth ears visible, but nose is slightly off-center (Ratio < 0.4 or > 0.6).80✅ GoodSemi-ProfileBoth ears visible, but nose is significantly closer to one ear.60-70⚠️ AverageProfile (Side)One ear is hidden (Visibility < 0.3), other is visible.45❌ PoorBack-FacingFace Detector fails to find a face bounding box OR Nose visibility is extremely low.0-20❌ RejectB. The Ratio FormulaTo distinguish between Frontal and Semi-Profile, we use a horizontal distance ratio:$$\text{Ratio} = \frac{\text{Distance(Nose, Left Ear)}}{\text{Total Width (Left Ear to Right Ear)}}$$Ratio $\approx$ 0.50: Perfect Frontal (Nose is in the center).Ratio < 0.40: Looking Left.Ratio > 0.60: Looking Right.C. Policy for Frame Selection (Group Logic)Since a frame often contains multiple people, we cannot rely on a simple average. We use a Majority Consensus (Ratio) Policy:Individual Check: Each person is marked as "PASS" if their score $\ge$ min_frame_score (Default: 50).Frame Ratio Calculation:$$\text{Frame Ratio} = \frac{\text{Count of PASS People}}{\text{Total People in Frame}}$$Final Decision:If Frame Ratio $\ge$ Threshold (Default: 0.4 or 40%), the frame is KEPT.Otherwise, the frame is DROPPED.Reasoning: This ensures that frames where the majority of the class/group is engaged are preserved, even if 1-2 individuals are looking away.3. Configuration Parameters (quality.yaml)The system behavior is controlled via srj/config/quality.yaml:min_frame_score (Default: 50):The minimum score an individual needs to be considered "Present/Engaged".Lowering this (e.g., to 40) includes side-profiles.Raising this (e.g., to 80) strictly enforces frontal views.min_ratio (Default: 0.4):The percentage of people in the frame that must pass the score check.Set to 0.4: Keeps the frame if at least 40% of people are looking front.Set to 0.8: Keeps the frame only if 80% of people are looking front (Very Strict).4. Output AnnotationsProcessed frames are saved with visual indicators for debugging:Green Box/Text: High Confidence (Frontal/Slight).Yellow Box/Text: Medium Confidence (Semi-Profile).Red Box/Text: Low Confidence (Back/Profile).CSV Log: Detailed metrics for every frame are saved in filtered_data/annotations.csv.
+# 📘 MindFrame: Quality Scoring & Face Detection Module
+**Version:** 1.0.0  
+**Module:** Frame face Analytics Pipeline
+
+---
+
+## 1. 🌟 Overview
+The **Quality Scoring Module** is an intelligent filter designed to evaluate participant engagement in video frames. Unlike simple face detection, this system determines **"Quality"** based on:
+1.  **Face Visibility:** Whether a face is detected.
+2.  **Orientation:** Where the person is looking (Frontal vs. Side vs. Back).
+3.  **Group Consensus:** Whether the majority of the group is attentive.
+
+It utilizes a **Hybrid Architecture** combining:
+* **Face Detection:** Options for **MTCNN** (High Accuracy) or **MediaPipe** (High Speed).
+* **Pose Estimation:** **MediaPipe Pose Landmarks** to detect head orientation via geometric analysis.
+
+---
+
+## 2. 🚀 How to Run the Code
+This module supports a **Command Line Interface (CLI)**, allowing you to choose models and paths dynamically.
+
+### 📦 Prerequisites
+Ensure all dependencies are installed:
+```bash
+pip install opencv-python mediapipe mtcnn ultralytics pyyaml
+
+
+
+🏃‍♂️ Execution Methods
+Method A: Interactive Mode (Recommended)
+Simply run the script, and it will ask for the input folder and model choice.
+
+Bash
+python srj/main.py
+Prompts you will see:
+
+Enter Input Images Folder Path: (Press Enter for default)
+
+Choose Face Detector Model: (Select 1 for MTCNN, 2 for MediaPipe)
+
+Method B: Command Line Arguments (For Automation)
+You can pass arguments directly to skip prompts.
+
+1. Run with Default Settings (MTCNN):
+
+Bash
+python srj/main.py
+2. Run with MediaPipe (Faster):
+
+Bash
+python srj/main.py -d mediapipe
+3. Custom Input/Output Folders:
+
+Bash
+python srj/main.py -i "C:/MyImages" -o "C:/MyResults"
+4. Strict Mode (High Quality Filter):
+
+Bash
+python srj/main.py -d mtcnn --score 80 --ratio 0.6
+3. 🧠 Logic Breakdown: Orientation & Scoring
+A. Orientation Detection (Geometric Analysis)
+The system calculates the orientation by analyzing the horizontal distance between the Nose and Ears landmarks.
+
+Orientation Label,Condition / Logic,Quality Score,Status
+Frontal,Both ears visible. Nose is centrally located (Ratio 0.4 - 0.6).,100,✅ Excellent
+Slight-Left/Right,"Both ears visible, nose slightly off-center.",80,✅ Good
+Semi-Profile,"Both ears visible, but nose is close to one ear.",60-70,⚠️ Average
+Profile (Side),One ear is hidden (< 30% visibility).,45-50,⚠️ Poor
+Indistinct,"Face detector failed, but Pose detected a body/head.",45,⚠️ Poor
+Back-Facing,No face detected AND No nose landmarks visible.,0-20,❌ Reject
+
+
+B. The Ratio Formula 📐
+To mathematically distinguish between Frontal and Semi-Profile views, we calculate:
+
+Code snippet
+Ratio = Distance(Nose to Left Ear) / Total Width(Left Ear to Right Ear)
+Ratio ≈ 0.50: Perfect Frontal (Nose is in the center).
+
+Ratio < 0.40: Looking Left.
+
+Ratio > 0.60: Looking Right.
+
+4. ⚖️ Frame Selection Policy (Group Logic)
+Since frames contain multiple people, we use a Majority Consensus Policy instead of a simple average score.
+
+Step 1: Individual Check 👤
+Each person is marked as "PASS" if their score meets the threshold:
+
+Condition: Person Score >= min_frame_score (Default: 50)
+
+Step 2: Frame Ratio Calculation 📊
+Code snippet
+Frame Ratio = (Count of PASS People) / (Total People in Frame)
+Step 3: Final Decision ✅/❌
+KEEP Frame: If Frame Ratio >= min_ratio (Default: 0.40).
+
+DROP Frame: If ratio is lower.
+
+Reasoning: This logic preserves frames where a significant portion (e.g., 40%) of the group is visible and engaged, even if 1 or 2 individuals are looking away or undetected.
+
+5. ⚙️ Configuration Parameters
+The system behavior is controlled via srj/config/quality.yaml:
+
+Parameter,Default,Description
+min_frame_score,50,"The minimum score for a person to be considered ""Valid"". • Set to 40: Includes side-profiles/blurry faces.• Set to 80: Strictly frontal faces only."
+min_ratio,0.40,The percentage of the group required to save the frame.• Set to 0.4: Keeps frame if 40% of people are valid.• Set to 0.8: Very strict group requirement.
+
+
+6. 📂 Deliverables & Outputs
+1. Processed Images (filtered_data/) 🖼️
+Images are saved with color-coded bounding boxes for easy debugging:
+
+🟢 Green: High Confidence (Frontal/Slight).
+
+🟡 Yellow: Medium Confidence (Semi-Profile).
+
+🔴 Red: Low Confidence (Back/Profile).
+
+2. Data Logs (filtered_data/annotations.csv) 📝
+A CSV file containing detailed analytics for every frame:
+
+Filename: Name of the image.
+
+Decision: KEPT or DROPPED.
+
+Person_Count: Number of people detected.
+
+Orientations: List of directions (e.g., ['Frontal', 'Back']).
+
+Avg_Score: Average quality score of the frame.

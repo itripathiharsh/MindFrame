@@ -1,0 +1,161 @@
+{
+    "project": "MindFrame",
+    "source_video": "video_2.dav",
+    "engine": "ffmpeg",
+    "requested_fps": 1.0,
+    "original_video_fps": 25.0,
+    "total_frames_extracted": 30,
+    "extraction_time": "2026-02-09T08:08:27.334538Z",
+    "frames": [
+        {
+            "frame_id": 1,
+            "filename": "frame_000001.jpg",
+            "timestamp_sec": 0.0
+        },
+        {
+            "frame_id": 2,
+            "filename": "frame_000002.jpg",
+            "timestamp_sec": 1.0
+        },
+        {
+            "frame_id": 3,
+            "filename": "frame_000003.jpg",
+            "timestamp_sec": 2.0
+        },
+        {
+            "frame_id": 4,
+            "filename": "frame_000004.jpg",
+            "timestamp_sec": 3.0
+        },
+        {
+            "frame_id": 5,
+            "filename": "frame_000005.jpg",
+            "timestamp_sec": 4.0
+        },
+        {
+            "frame_id": 6,
+            "filename": "frame_000006.jpg",
+            "timestamp_sec": 5.0
+        },
+        {
+            "frame_id": 7,
+            "filename": "frame_000007.jpg",
+            "timestamp_sec": 6.0
+        },
+        {
+            "frame_id": 8,
+            "filename": "frame_000008.jpg",
+            "timestamp_sec": 7.0
+        },
+        {
+            "frame_id": 9,
+            "filename": "frame_000009.jpg",
+            "timestamp_sec": 8.0
+        },
+        {
+            "frame_id": 10,
+            "filename": "frame_000010.jpg",
+            "timestamp_sec": 9.0
+        },
+        {
+            "frame_id": 11,
+            "filename": "frame_000011.jpg",
+            "timestamp_sec": 10.0
+        },
+        {
+            "frame_id": 12,
+            "filename": "frame_000012.jpg",
+            "timestamp_sec": 11.0
+        },
+        {
+            "frame_id": 13,
+            "filename": "frame_000013.jpg",
+            "timestamp_sec": 12.0
+        },
+        {
+            "frame_id": 14,
+            "filename": "frame_000014.jpg",
+            "timestamp_sec": 13.0
+        },
+        {
+            "frame_id": 15,
+            "filename": "frame_000015.jpg",
+            "timestamp_sec": 14.0
+        },
+        {
+            "frame_id": 16,
+            "filename": "frame_000016.jpg",
+            "timestamp_sec": 15.0
+        },
+        {
+            "frame_id": 17,
+            "filename": "frame_000017.jpg",
+            "timestamp_sec": 16.0
+        },
+        {
+            "frame_id": 18,
+            "filename": "frame_000018.jpg",
+            "timestamp_sec": 17.0
+        },
+        {
+            "frame_id": 19,
+            "filename": "frame_000019.jpg",
+            "timestamp_sec": 18.0
+        },
+        {
+            "frame_id": 20,
+            "filename": "frame_000020.jpg",
+            "timestamp_sec": 19.0
+        },
+        {
+            "frame_id": 21,
+            "filename": "frame_000021.jpg",
+            "timestamp_sec": 20.0
+        },
+        {
+            "frame_id": 22,
+            "filename": "frame_000022.jpg",
+            "timestamp_sec": 21.0
+        },
+        {
+            "frame_id": 23,
+            "filename": "frame_000023.jpg",
+            "timestamp_sec": 22.0
+        },
+        {
+            "frame_id": 24,
+            "filename": "frame_000024.jpg",
+            "timestamp_sec": 23.0
+        },
+        {
+            "frame_id": 25,
+            "filename": "frame_000025.jpg",
+            "timestamp_sec": 24.0
+        },
+        {
+            "frame_id": 26,
+            "filename": "frame_000026.jpg",
+            "timestamp_sec": 25.0
+        },
+        {
+            "frame_id": 27,
+            "filename": "frame_000027.jpg",
+            "timestamp_sec": 26.0
+        },
+        {
+            "frame_id": 28,
+            "filename": "frame_000028.jpg",
+            "timestamp_sec": 27.0
+        },
+        {
+            "frame_id": 29,
+            "filename": "frame_000029.jpg",
+            "timestamp_sec": 28.0
+        },
+        {
+            "frame_id": 30,
+            "filename": "frame_000030.jpg",
+            "timestamp_sec": 29.0
+        }
+    ]
+}
